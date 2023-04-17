@@ -1,16 +1,15 @@
-# Terraform Module
+# AWS AppConfig Terraform Module
 
-## Features
+A Terraform module that creates an AWS AppConfig Application with many Environments and Configuration Profiles.
 
-1. **AppConfig Application, Environments, and Configuration Profiles**
-2. **IAM Session Policy**. Creates a policy that allows fetching the latest configuration and establishing a session with AWS AppConfig for multiple applications, environments, and configuration profiles.
+Also includes a submodule used for creating an IAM policy for use with applications.
 
 ## Usage
 
 ```terraform
 module "foobar_appconfig" {
-  source  = "TODO"
-  version = "X.X.X"
+  source  = "Catalyst-Consulting-Group/appconfig/aws"
+  version = "1.0.0"
 
   name        = "foobar"
   description = "Foobar Configuration"
@@ -29,27 +28,6 @@ This will create an AppConfig application named `foobar`, with 1 environment nam
 
 By default, profiles will be created as `hosted` `AWS.Freeform`, however this can be overridden.
 Please refer to `variables.tf` for more information.
-
-`session-policy`:
-
-```terraform
-module "foobar_appconfig_policy" {
-  source  = "TODO"
-  version = "X.X.X"
-
-  name = "foobar-appconfig-policy"
-
-  configurations = [
-    {
-      application_id           = module.foobar_appconfig.id
-      environment_id           = module.foobar_appconfig.environment_ids["main"]
-      configuration_profile_id = module.foobar_appconfig.configuration_profile_ids["main"]
-    }
-  ]
-}
-```
-
-You can then attach this policy to any principal that requires it.
 
 ## Authors
 
