@@ -2,14 +2,14 @@
 
 A Terraform module that creates an AWS AppConfig Application with many Environments and Configuration Profiles.
 
-Also includes a submodule used for creating an IAM policy for use with applications.
+Also includes a [submodule](./modules/session-policy/README.md) used for creating an IAM policy for use with applications.
 
 ## Usage
 
 ```terraform
 module "foobar_appconfig" {
   source  = "Catalyst-Consulting-Group/appconfig/aws"
-  version = "1.0.0"
+  version = "~> 1.0"
 
   name        = "foobar"
   description = "Foobar Configuration"

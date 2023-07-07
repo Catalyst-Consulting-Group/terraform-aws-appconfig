@@ -7,7 +7,7 @@ An IAM policy that enables fetching the latest configuration and establishing a 
 ```terraform
 module "foobar_appconfig_policy" {
   source  = "Catalyst-Consulting-Group/appconfig/aws//modules/session-policy"
-  version = "1.0.0"
+  version = "~> 1.0"
 
   name = "foobar-appconfig-policy"
 

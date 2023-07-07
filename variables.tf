@@ -11,17 +11,18 @@ variable "description" {
 }
 
 variable "environments" {
-  description = "(Optional) A list of environments to create"
+  description = "(Optional) A map of environments to create"
   type        = map(object({
     name        = optional(string)
     description = optional(string)
     tags        = optional(map(string))
   }))
   nullable = false
+  default  = {}
 }
 
 variable "configuration_profiles" {
-  description = "(Optional) A list of configuration profiles to create. Defaults to freeform hosted configuration"
+  description = "(Optional) A map of configuration profiles to create. Each profile defaults to 'AWS.Freeform' `type` and 'hosted' `location_uri`"
   type        = map(object({
     name         = optional(string)
     description  = optional(string)
@@ -30,10 +31,11 @@ variable "configuration_profiles" {
     tags         = optional(map(string))
   }))
   nullable = false
+  default  = {}
 }
 
 variable "tags" {
-  description = "(Optional) Tags for the AppConfig application"
+  description = "(Optional) A map of tags for the AppConfig application"
   type        = map(string)
   default     = {}
 }
