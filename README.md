@@ -29,7 +29,7 @@ This will create an AppConfig application named `foobar`, with 1 environment nam
 By default, profiles will be created as `hosted` `AWS.Freeform`, however this can be overridden.
 Please refer to `variables.tf` for more information.
 
-To create an validator, use the `validators` variable
+To create a validator, use the `validators` variable
 
 ```terraform
 module "foobar_appconfig" {
