@@ -12,7 +12,7 @@ variable "description" {
 
 variable "environments" {
   description = "(Optional) A map of environments to create"
-  type        = map(object({
+  type = map(object({
     name        = optional(string)
     description = optional(string)
     tags        = optional(map(string))
@@ -23,12 +23,16 @@ variable "environments" {
 
 variable "configuration_profiles" {
   description = "(Optional) A map of configuration profiles to create. Each profile defaults to 'AWS.Freeform' `type` and 'hosted' `location_uri`"
-  type        = map(object({
+  type = map(object({
     name         = optional(string)
     description  = optional(string)
     type         = optional(string)
     location_uri = optional(string)
     tags         = optional(map(string))
+    validators = optional(list(object({
+      content = string
+      type    = string
+    })))
   }))
   nullable = false
   default  = {}
