@@ -27,7 +27,8 @@ resource "aws_appconfig_configuration_profile" "this" {
   location_uri   = coalesce(try(each.value.location_uri, null), "hosted")
 
   dynamic "validator" {
-    for_each = lookup(each.value, "validators", null) != null ? each.value.validators : []
+    for_each = try(each.value.validators, [])
+
     content {
       content = validator.value.content
       type    = validator.value.type

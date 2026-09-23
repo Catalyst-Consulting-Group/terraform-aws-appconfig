@@ -1,17 +1,17 @@
 variable "name" {
-  description = "(Required) The name of the AppConfig application"
+  description = "The name of the AppConfig application"
   type        = string
   nullable    = false
 }
 
 variable "description" {
-  description = "(Optional) A description for the AppConfig application"
+  description = "A description for the AppConfig application"
   type        = string
   nullable    = true
 }
 
 variable "environments" {
-  description = "(Optional) A map of environments to create"
+  description = "A map of environments to create"
   type = map(object({
     name        = optional(string)
     description = optional(string)
@@ -22,7 +22,7 @@ variable "environments" {
 }
 
 variable "configuration_profiles" {
-  description = "(Optional) A map of configuration profiles to create. Each profile defaults to 'AWS.Freeform' `type` and 'hosted' `location_uri`"
+  description = "A map of configuration profiles to create. Each profile defaults to 'AWS.Freeform' `type` and 'hosted' `location_uri`"
   type = map(object({
     name         = optional(string)
     description  = optional(string)
@@ -39,7 +39,7 @@ variable "configuration_profiles" {
 }
 
 variable "tags" {
-  description = "(Optional) A map of tags for the AppConfig application"
+  description = "A map of tags for the AppConfig application"
   type        = map(string)
   default     = {}
 }

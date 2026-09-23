@@ -20,8 +20,8 @@ data "aws_iam_policy_document" "this" {
     resources = [
       for configuration in var.configurations : format(
         "arn:%s:appconfig:%s:%s:application/%s/environment/%s/configuration/%s",
-        data.aws_partition.current.id,
-        data.aws_region.current.id,
+        data.aws_partition.current.partition,
+        data.aws_region.current.region,
         data.aws_caller_identity.current.account_id,
         configuration.application_id,
         configuration.environment_id,

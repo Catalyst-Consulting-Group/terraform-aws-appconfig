@@ -9,7 +9,7 @@ Also includes a [submodule](./modules/session-policy/README.md) used for creatin
 ```terraform
 module "foobar_appconfig" {
   source  = "Catalyst-Consulting-Group/appconfig/aws"
-  version = "~> 1.0"
+  version = "~> 2.0"
 
   name        = "foobar"
   description = "Foobar Configuration"
@@ -29,12 +29,12 @@ This will create an AppConfig application named `foobar`, with 1 environment nam
 By default, profiles will be created as `hosted` `AWS.Freeform`, however this can be overridden.
 Please refer to `variables.tf` for more information.
 
-To create a validator, use the `validators` variable
+To create a validator, use the `validators` variable.
 
 ```terraform
 module "foobar_appconfig" {
   source  = "Catalyst-Consulting-Group/appconfig/aws"
-  version = "~> 1.0"
+  version = "~> 2.0"
 
   name        = "foobar"
   description = "Foobar Configuration"
